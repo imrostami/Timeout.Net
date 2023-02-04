@@ -7,7 +7,7 @@ And then
 
 ```csharp
    using Timeout.Net
-    ```
+```
 
 
 
@@ -16,7 +16,7 @@ And then
 
 ```csharp
     TimeoutContext<string, string> ctx = new TimeoutContext<string, string>();
-    ```
+```
 
 
 2.Add Timeout Context Event Handllers
@@ -39,7 +39,7 @@ void timeout_OnKeyAdded(string key)
 {
     Console.WriteLine($"Key {key} Added");
 }
-    ```
+```
     
     
 
@@ -49,7 +49,7 @@ void timeout_OnKeyAdded(string key)
 ```csharp
   //this code scrdule a string key for 10 seccend
    timeout.SetTimeout("key" , new TimeSpan(hours: 0, 0, 10))
-    ```
+```
     
     
 
@@ -79,7 +79,7 @@ void Timeout_OnScheduledItemExpired(Action key)
 {
     key();
 }
-    ```
+```
     
     
 
