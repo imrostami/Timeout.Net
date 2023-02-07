@@ -47,7 +47,7 @@ void timeout_OnKeyAdded(string key)
 <h2>Scedule a Key Value</h2>
 
 ```csharp
-  //this code scrdule a string key for 10 seccend
+  //this code scedule a string key for 10 seccend
    timeout.SetTimeout("key" , new TimeSpan(hours: 0, 0, 10))
 ```
     
