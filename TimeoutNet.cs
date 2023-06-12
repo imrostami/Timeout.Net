@@ -6,9 +6,14 @@ namespace Timeout.Net
     {
         private readonly ConcurrentDictionary<TKey, Tuple<TValue, Task>> _dictionary = new ConcurrentDictionary<TKey, Tuple<TValue, Task>>();
         public delegate void KeyChange(TKey key);
-        
+
         public event KeyChange OnScheduledItemExpired;
         public event KeyChange OnItemScheduled;
+
+        public TimeoutNet()
+        {
+            this.OnScheduledItemExpired += TimeOutStatics.DefaultScheduledExpired;
+        }
 
         public void SetTimeout(TKey key, TValue value, TimeSpan timeSpan)
         {
@@ -40,6 +45,15 @@ namespace Timeout.Net
 
             value = default;
             return false;
+        }
+    }
+
+    public static class TimeOutStatics
+    {
+        // By default, this method is assigned to delegate "OnScheduledItemExpired" when the class is created
+        public static void DefaultScheduledExpired(Action key)
+        {
+            key();
         }
     }
 }
