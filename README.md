@@ -61,9 +61,6 @@ void timeout_OnKeyAdded(string key)
    TimeoutContext<Action, object> timeout = new TimeoutContext<Action, object>();
 
 
-
-timeout.OnScheduledItemExpired += Timeout_OnScheduledItemExpired;
-
 timeout.SetTimeout(() =>
 {
     Console.WriteLine("10 seccend task timeouted");
@@ -75,10 +72,7 @@ timeout.SetTimeout(() =>
 }, null, new TimeSpan(hours: 0, 0, 15));
 
 
-void Timeout_OnScheduledItemExpired(Action key)
-{
-    key();
-}
+
 ```
     
     
